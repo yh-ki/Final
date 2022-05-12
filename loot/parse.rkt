@@ -52,11 +52,11 @@
     [(cons 'values es)
      (Values (parse-vs es))]
 
-    [(list 'let-values (cons xs e) el)
+    [(list 'let-values (list (cons xs e)) el)
      (if (and (list? xs)
               (andmap symbol? xs))
          (Let-values xs (parse-e e) (parse-e el))
-         (error "parse lambda error"))]
+         (error "parse let-values error"))]
     [(cons e es)
      (App (parse-e e) (map parse-e es))]    
     [_ (error "Parse error" s)]))

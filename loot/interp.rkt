@@ -95,13 +95,17 @@
        ['err 'err]
        [v
         (interp-match v ps es r ds)])]
-    [(Values es) (apply values (interp-val es r ds))]
-    [(Let-values xs e el) (let-values ([xs (interp-env e r ds)]) (interp-env el r ds))]))
+    [(Values es) (apply values (interp-val es r ds))]))
 
 (define (interp-val es r ds)
   (match es
     ['() '()]
     [(cons e el) (cons (interp-env e r ds) (interp-val el r ds))]))
+
+(define (let-val xs)
+  (match xs
+    ['() '()]
+    [(cons x xs) (cons x)]))
 
 ;; Value [Listof Pat] [Listof Expr] Env Defns -> Answer
 (define (interp-match v ps es r ds)

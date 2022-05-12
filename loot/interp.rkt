@@ -95,7 +95,8 @@
        ['err 'err]
        [v
         (interp-match v ps es r ds)])]
-    [(Values es) (apply values (interp-val es r ds))]))
+    [(Values es) (apply values (interp-val es r ds))]
+    [(Let-values xs e el) (let-values ([xs (interp-env e r ds)]) (interp-env el r ds))]))
 
 (define (interp-val es r ds)
   (match es

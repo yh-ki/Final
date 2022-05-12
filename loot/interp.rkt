@@ -95,7 +95,9 @@
        ['err 'err]
        [v
         (interp-match v ps es r ds)])]
-    [(Values es) (apply values (interp-val es r ds))]))
+    [(Values es) (apply values (interp-val es r ds))]
+    [(Let-values xs e el)
+     (if (= (length xs) (length (call-with-values (lambda () (interp-env e r ds)) list))) (interp-env el (append (zip xs vs) r) ds) 'err)]))
 
 (define (interp-val es r ds)
   (match es

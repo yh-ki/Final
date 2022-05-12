@@ -97,7 +97,7 @@
         (interp-match v ps es r ds)])]
     [(Values es) (apply values (interp-val es r ds))]
     [(Let-values xs e el)
-     (let ((vs (call-with-values (lambda () (interp-env e r ds)) list))) (if (= (length xs) (length vs)) xs vs))]))
+     (let ((vs (call-with-values (lambda () (interp-env e r ds)) list))) (if (= (length xs) (length vs)) vs xs))]))
 
 (define (interp-val es r ds)
   (match es

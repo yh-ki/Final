@@ -119,9 +119,10 @@
     (seq (Mov r8 (length es))
          (Cmp r8 0)
          (Je empty1)
-         (compile-es (reverse es) c)
+         (compile-es es c)
        
-         (Or rbx type-values)
+         (Mov r9 rbx)
+         (Or r9 type-values)
          
          (Mov (Offset rbx 0) (imm->bits r8))
          (Add rbx 8)
@@ -134,7 +135,7 @@
          (Cmp r8 0)
          (Jne loop1)
    
-         (Mov rax rbx)
+         (Mov rax r9)
          (Jmp done1)
    
          (Label empty1)

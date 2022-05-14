@@ -7,6 +7,8 @@
 (define rbx 'rbx) ; heap
 (define rsp 'rsp) ; stack
 (define rdi 'rdi) ; arg
+(define r8 'r8)
+(define r9 'r9)
 
 ;; type CEnv = [Listof Id]
 

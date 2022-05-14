@@ -173,6 +173,7 @@
          (Jne 'raise_error_align)
          (Label done)
          (compile-e el (reverse xs) t?)
+         (Add rsp (* 8 (length xs)))
          )))
 
 ;; Value -> Asm

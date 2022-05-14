@@ -131,7 +131,7 @@
          (Add rbx 8)
          (Sub r8 1)
          (Cmp r8 0)
-         (Jne loop)
+         (Jne loop1)
    
          (Mov rax r9)
          (Jmp done)

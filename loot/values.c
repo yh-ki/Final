@@ -14,6 +14,8 @@ type_t val_typeof(val_t x)
     return T_STR;
   case proc_type_tag:
     return T_PROC;
+  case vals_type_tag:
+    return T_VALUES;
   }
 
   if ((int_type_mask & x) == int_type_tag)
@@ -107,4 +109,13 @@ val_str_t* val_unwrap_str(val_t x)
 val_t val_wrap_str(val_str_t *v)
 {
   return ((val_t)v) | str_type_tag;
+}
+
+val_vals_t* val_unwrap_vals(val_t x)
+{
+  return (val_vect_t *)(x ^ vect_type_tag);
+}
+val_t val_wrap_vals(val_vals_t *v)
+{
+  return ((val_t)v) | vect_type_tag;
 }

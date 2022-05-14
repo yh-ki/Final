@@ -35,6 +35,9 @@ void print_result(val_t x)
     printf("'");
     print_result_interior(x);
     break;
+  case T_VALUES:    
+    print_result_interior(x);
+    break;
   case T_STR:
     putchar('"');
     print_str(val_unwrap_str(x));
@@ -66,6 +69,9 @@ void print_result_interior(val_t x)
   case T_VECT:
     print_vect(val_unwrap_vect(x));
     break;    
+  case T_VALUES:
+    print_vals(val_unwrap_vals(x));
+    break; 
   default:
     print_result(x);
   }
@@ -85,6 +91,19 @@ void print_vect(val_vect_t *v)
       putchar(' ');
   }
   printf(")");
+}
+
+void print_vals(val_vals_t *v)
+{
+  uint64_t i;
+
+  if (!v) { printf(""); return; }
+
+  for (i = 0; i < v->len; ++i) {
+    print_result_interior(v->elems[i]);
+
+    printf("\n");
+  }
 }
 
 void print_cons(val_cons_t *cons)

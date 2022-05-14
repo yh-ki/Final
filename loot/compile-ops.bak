@@ -302,8 +302,6 @@
   (assert-type ptr-mask type-cons))
 (define assert-vector
   (assert-type ptr-mask type-vect))
-(define assert-values
-  (assert-type ptr-mask type-values))
 (define assert-string
   (assert-type ptr-mask type-str))
 (define assert-proc

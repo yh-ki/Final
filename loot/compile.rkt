@@ -119,7 +119,7 @@
     (seq (Mov r8 (length es))
          (Cmp r8 0)
          (Je empty1)
-         (compile-es es c)
+         (compile-es (reverse es) c)
        
          (Mov r9 rbx)
          (Or r9 type-values)
@@ -139,7 +139,7 @@
          (Jmp done1)
    
          (Label empty1)
-         (Mov rax type-values)
+         (Mov rax 0)
          (Label done1)
          )))
 

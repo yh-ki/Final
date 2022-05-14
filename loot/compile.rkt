@@ -121,7 +121,7 @@
          (Je empty1)
          (compile-es (reverse es) c)
        
-         (Mov r9 rbx)
+         (Mov r9 0)
          (Or r9 type-values)
          
          (Mov (Offset rbx 0) (imm->bits r8))

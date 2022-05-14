@@ -171,7 +171,7 @@
          (Label zero)
          (Cmp rax (length xs))
          (Jne 'raise_error_align)
-         (Lable done)
+         (Label done)
          (compile-e el (reverse xs) t?)
          )))
 

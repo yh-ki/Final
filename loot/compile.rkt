@@ -124,12 +124,12 @@
          (Mov r9 rbx)
          (Or r9 type-values)
          
-         (Mov (Offset rbx 0) 0)
+         (Mov (Offset rbx 0) (imm->bits r8))
          (Add rbx 8)
 
          (Label loop1)
          (Pop rax)
-         (Mov (Offset rbx 0) rax)
+         (Mov (Offset rbx 0) 0)
          (Add rbx 8)
          (Sub r8 1)
          (Cmp r8 0)

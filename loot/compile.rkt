@@ -134,11 +134,11 @@
          (Jne loop1)
    
          (Mov rax r9)
-         (Jmp done)
+         (Jmp done1)
    
          (Label empty1)
          (Mov rax type-values)
-         (Label done)
+         (Label done1)
          )))
 
 (define (compile-letvals xs e el c)

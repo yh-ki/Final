@@ -121,10 +121,10 @@
          (Je empty1)
          (compile-es (reverse es) c)
        
-         (Mov r9 0)
+         (Mov r9 rbx)
          (Or r9 type-values)
          
-         (Mov (Offset rbx 0) (imm->bits r8))
+         (Mov (Offset rbx 0) 0)
          (Add rbx 8)
 
          (Label loop1)
